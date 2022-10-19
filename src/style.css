@@ -281,6 +281,12 @@ body {
 @media (max-width: 50em) {
   .primary-navigation {
     display: none;
+
+    position: fixed;
+    inset: 7rem 1rem auto;
+    /* temporary color */
+    background: var(--color-neutral-900);
+    border-radius: 0.25rem;
   }
 
   .primary-navigation[data-visible] {
