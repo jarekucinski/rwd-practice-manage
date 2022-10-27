@@ -125,6 +125,15 @@ body {
   color: var(--color-primary-400);
 }
 
+p:not([class]) {
+  opacity: 0.7;
+  max-width: 35ch;
+}
+
+p[data-width='wide'] {
+  max-width: 45ch;
+}
+
 /* button */
 .button {
   display: inline-flex;
@@ -347,6 +356,12 @@ body {
 
   width: min(var(--max-width), 100% - var(--horizontal-padding) * 2);
   margin-inline: auto;
+}
+
+/* same as ":not(:first-child)" but without boosting specificity */
+/* also as ".flow * + *" */
+:where(.flow :not(:first-child)) {
+  margin-top: var(--flow-spacer, 3em);
 }
 
 .even-columns {
