@@ -253,6 +253,32 @@ p[data-width='wide'] {
   position: fixed;
 }
 
+/* CTA */
+.cta {
+  position: relative;
+  /* create new stacking context */
+  isolation: isolate;
+  text-align: center;
+}
+
+@media (min-width: 50em) {
+  .cta {
+    text-align: left;
+  }
+}
+
+.cta::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background-image: url('/images/bg-tablet-pattern.svg'), url('/images/bg-tablet-pattern.svg');
+
+  background-position: -15rem -5rem, 80rem -42rem;
+  background-repeat: no-repeat;
+  opacity: 0.1;
+}
+
 /* Utility classes */
 .visually-hidden {
   position: absolute;
@@ -334,9 +360,11 @@ p[data-width='wide'] {
 }
 
 .padding-block-700 {
+  padding-top: var(--size-700);
   padding-bottom: var(--size-700);
 }
 .padding-block-900 {
+  padding-top: var(--size-900);
   padding-bottom: var(--size-900);
 }
 
@@ -352,16 +380,10 @@ p[data-width='wide'] {
 
 .container {
   --max-width: 1110px;
-  --horizontal-padding: 1rem;
+  --padding: 1rem;
 
-  width: min(var(--max-width), 100% - var(--horizontal-padding) * 2);
+  width: min(var(--max-width), 100% - var(--padding) * 2);
   margin-inline: auto;
-}
-
-/* same as ":not(:first-child)" but without boosting specificity */
-/* also as ".flow * + *" */
-:where(.flow :not(:first-child)) {
-  margin-top: var(--flow-spacer, 3em);
 }
 
 .even-columns {
@@ -374,4 +396,27 @@ p[data-width='wide'] {
     grid-auto-flow: column;
     grid-auto-columns: 1fr;
   }
+}
+
+.vertical-align-center {
+  align-items: center;
+}
+
+.justyfy-self-end {
+  justify-self: end;
+}
+
+.justyfy-self-end-md {
+  justify-self: center;
+}
+
+@media (min-width: 50em) {
+  .justyfy-self-end-md {
+    justify-self: end;
+  }
+}
+/* same as ":not(:first-child)" but without boosting specificity */
+/* also as ".flow * + *" */
+:where(.flow :not(:first-child)) {
+  margin-top: var(--flow-spacer, 3em);
 }
