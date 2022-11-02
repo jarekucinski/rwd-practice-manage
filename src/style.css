@@ -284,6 +284,9 @@ p[data-width='wide'] {
 }
 
 /* Footer navigation */
+.WTF {
+  border: 2px solid red;
+}
 .primary-footer {
   --logo-color: var(--color-neutral-100);
 }
