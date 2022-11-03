@@ -257,6 +257,24 @@ p[data-width='wide'] {
   position: fixed;
 }
 
+/* numbered items */
+.numbered-items {
+  counter-reset: count;
+}
+
+.numbered-items li {
+  counter-increment: count;
+}
+
+.numbered-items li::before {
+  content: '0' counter(count);
+  background-color: var(--color-accent-400);
+  color: var(--color-neutral-100);
+  font-weight: var(--fw-bold);
+  padding: var(--size-200) var(--size-500);
+  border-radius: 100vw;
+}
+
 /* CTA */
 .cta {
   position: relative;
